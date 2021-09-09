@@ -11,10 +11,10 @@ function Slides({slides}) {
 
   const onCLickNext = () =>{
     setSlide(slides[index++]);
-    if((index === slides.length )){
-      setDisabledButtonNext(true);
-    }else{
+    if((index < slides.length)){
       setDisabledButtonNext(false);
+    }else{
+      setDisabledButtonNext(true);
     }
   }
 
