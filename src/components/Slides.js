@@ -5,7 +5,7 @@ function Slides({slides}) {
 
   const [slide, setSlide] = React.useState(slides[0]);
   const [disabledButtonRestart, setDisabledButtonRestart] = React.useState(true);
-  const [disabledButtonNext, setDisabledButtonNext] = React.useState(true);
+  const [disabledButtonNext, setDisabledButtonNext] = React.useState(false);
   const [disabledButtonPrevious, setDisabledButtonPrevious] = React.useState(true);
 
 
