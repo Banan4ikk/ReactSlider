@@ -11,12 +11,12 @@ function Slides({slides}) {
 
   const onCLickNext = () =>{
     setSlide(slides[index++]);
-    index === slides.length ? disabledButtonNext(true) : disabledButtonNext(false);
+    index === slides.length ? setDisabledButtonNext(true) : setDisabledButtonNext(false);
   }
 
   const onCLickPrev = () =>{
     setSlide(slides[index--]);
-    index === 0 ? disabledButtonPrevious(true) : disabledButtonPrevious(false);
+    index === 0 ? setDisabledButtonPrevious(true) : setDisabledButtonPrevious(false);
   }
 
   const onCLickRestart = () =>{
