@@ -20,21 +20,21 @@ function Slides({slides}) {
 
   const onCLickPrev = () =>{
     setSlide(slides[index--]);
-    if(index === 0){
-      setDisabledButtonPrevious(true);
+    if(index > 0){
+      setDisabledButtonPrevious(false);
     }
     else{
-      setDisabledButtonPrevious(false);
+      setDisabledButtonPrevious(true);
     }
   }
 
   const onCLickRestart = () =>{
     setSlide(slide[0]);
-    if(index === 0){
-      setDisabledButtonRestart(true);
+    if(index > 0){
+      setDisabledButtonRestart(false);
     }
     else{
-      setDisabledButtonRestart(false);
+      setDisabledButtonRestart(true);
     }
   }
 
