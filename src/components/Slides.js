@@ -10,8 +10,8 @@ function Slides({slides}) {
 
 
   const onCLickNext = () =>{
-    setSlide(slides[slide.index++]);
-    if((slide.index === slides.length )){
+    setSlide(slides[index++]);
+    if((index === slides.length )){
       setDisabledButtonNext(true);
     }else{
       setDisabledButtonNext(false);
@@ -19,8 +19,8 @@ function Slides({slides}) {
   }
 
   const onCLickPrev = () =>{
-    setSlide(slides[slide.index--]);
-    if(slide.index === 0){
+    setSlide(slides[index--]);
+    if(index === 0){
       setDisabledButtonPrevious(true);
     }
     else{
@@ -29,8 +29,8 @@ function Slides({slides}) {
   }
 
   const onCLickRestart = () =>{
-    setSlide(slide.index[0]);
-    if(slide.index === 0){
+    setSlide(slide[0]);
+    if(index === 0){
       setDisabledButtonRestart(true);
     }
     else{
