@@ -10,18 +10,32 @@ function Slides({slides}) {
 
 
   const onCLickNext = () =>{
-    setSlide(slides[index++]);
-    index === slides.length ? setDisabledButtonNext(true) : setDisabledButtonNext(false);
+    setSlide(slides[slide.index++]);
+    if((slide.index === slides.length )){
+      setDisabledButtonNext(true);
+    }else{
+      setDisabledButtonNext(false);
+    }
   }
 
   const onCLickPrev = () =>{
-    setSlide(slides[index--]);
-    index === 0 ? setDisabledButtonPrevious(true) : setDisabledButtonPrevious(false);
+    setSlide(slides[slide.index--]);
+    if(slide.index === 0){
+      setDisabledButtonPrevious(true);
+    }
+    else{
+      setDisabledButtonPrevious(false);
+    }
   }
 
   const onCLickRestart = () =>{
-    setSlide(slides[0]);
-    index === 0 ? disabledButtonRestart(true) : disabledButtonRestart(false)
+    setSlide(slide.index[0]);
+    if(slide.index === 0){
+      setDisabledButtonRestart(true);
+    }
+    else{
+      setDisabledButtonRestart(false);
+    }
   }
 
     return (
@@ -37,7 +51,6 @@ function Slides({slides}) {
             </div>
         </div>
     );
-
 }
 
 export default Slides;
