@@ -1,49 +1,37 @@
 import React from 'react';
 
 function Slides({slides}) {
-  let index = 0;
+    const [index, setIndex] = React.useState(0);
+    const [slide, setSlide] = React.useState(slides[0]);
 
-  const [slide, setSlide] = React.useState(slides[0]);
-  const [disabledButtonRestart, setDisabledButtonRestart] = React.useState(true);
-  const [disabledButtonNext, setDisabledButtonNext] = React.useState(false);
-  const [disabledButtonPrevious, setDisabledButtonPrevious] = React.useState(true);
+    const onCLickNext = () => {
+        setIndex(index + 1);
+    }
 
+    const onCLickPrev = () => {
+        setIndex(index - 1);
+    }
 
-  const onCLickNext = () =>{
-    setSlide(slides[index++]);
-    if((index < slides.length)){
-      setDisabledButtonNext(false);
-    }else{
-      setDisabledButtonNext(true);
+    const onCLickRestart = () => {
+        setIndex(0);
     }
-  }
 
-  const onCLickPrev = () =>{
-    setSlide(slides[index--]);
-    if(index > 0){
-      setDisabledButtonPrevious(false);
-    }
-    else{
-      setDisabledButtonPrevious(true);
-    }
-  }
-
-  const onCLickRestart = () =>{
-    setSlide(slide[0]);
-    if(index > 0){
-      setDisabledButtonRestart(false);
-    }
-    else{
-      setDisabledButtonRestart(true);
-    }
-  }
+    React.useEffect(() => {
+        setSlide(slides[index]);
+    }, [index]);
 
     return (
         <div>
             <div id="navigation" className="text-center">
-                <button onClick={onCLickRestart} disabled={disabledButtonRestart} data-testid="button-restart" className="small outlined">Restart</button>
-                <button onClick={onCLickPrev} disabled={disabledButtonPrevious} data-testid="button-prev" className="small">Prev</button>
-                <button onClick={onCLickNext} disabled={disabledButtonNext} data-testid="button-next" className="small">Next</button>
+                <button onClick={onCLickRestart} disabled={index === 0} data-testid="button-restart"
+                        className="small outlined">Restart
+                </button>
+                <button onClick={onCLickPrev} disabled={index === 0} data-testid="button-prev"
+                        className="small">Prev
+                </button>
+                <button onClick={onCLickNext} disabled={ index >= (slides.length - 1)} data-testid="button-next"
+                        className="small">Next
+                </button>
             </div>
             <div id="slide" className="card text-center">
                 <h1 data-testid="title">{slide.title}</h1>
